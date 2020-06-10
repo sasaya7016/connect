@@ -1,0 +1,19 @@
+.review
+  .review__tweets
+    %h1 投稿
+    %p お店の商品や利用していただいた方へ
+    %p ご要望・ご指摘がございましたら、ご記入ください。
+    .review-lists
+      .review-lists__list
+        .day-name
+          .date-time
+            = @tweet.created_at.strftime('%Y/%m/%d %H:%M')
+          .user-name
+            = @tweet.user.nickname
+          .select-list
+            = link_to '削除', "/tweets/#{tweet.id}", method: :delete
+
+        .text
+          = simple_format @tweet.text
+
+  
