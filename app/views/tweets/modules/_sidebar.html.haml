@@ -1,0 +1,40 @@
+#sidebar.nav-collapse
+  / sidebar menu start
+  = link_to root_path do
+    %p.management-title Connect
+
+  %ul#nav-accordion.sidebar-menu
+    = link_to root_path ,class:"mm-title" do
+      = icon('fas', 'pen-square', class: 'icon')
+      メニュー
+
+    %li.mt
+      = link_to new_tweet_path do
+        = icon('fas', 'pen-square', class: 'icon')
+        %span 投稿
+    -# %li.sub-menu
+    -#   = link_to root_path do
+    -#     = icon('fas', 'pen-square', class: 'icon')
+    -#     %span メニュー登録
+      
+    -# %li.sub-menu
+    -#   = link_to root_path do
+    -#     = icon('fas', 'pen-square', class: 'icon')
+    -#     %span スタッフ登録
+    
+    -# %li.sub-menu
+    -#   = link_to root_path do
+    -#     = icon('fas', 'pen-square', class: 'icon')
+    -#     %span アイテム登録
+      
+    -# %li.sub-menu
+    -#   = link_to root_path do
+    -#     = icon('fas', 'pen-square', class: 'icon')
+    -#     %span 予約管理
+      
+    -# %li
+    -#   %a.active{:href => "inbox.html"}
+    -#     %i.fa.fa-envelope
+    -#     %span Mail
+    -#     %span.label.label-theme.pull-right.mail-info 3
+  
