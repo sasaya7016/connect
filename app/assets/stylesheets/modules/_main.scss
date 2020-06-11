@@ -1,10 +1,47 @@
 .review {
-  width: calc(100% - 210px);
+  width: calc(100% - 210px - 350px);
+  height: 70px;
+  background-color: #eee;
   position: fixed;
-  top: 0;
+  top: 30px;
   left: 210px;
   .review__tweets{
 
   }
 
+}
+
+
+.review-lists {
+  width: calc(100% - 210px - 350px);
+  height: calc(100% - 100px);
+  // background-color: #ccc;
+  position: fixed;
+  overflow: scroll;
+  margin-top: 100px;
+  left: 210px;
+  padding: 3px;
+  &__list {
+    width: 99%;
+    height: 120px;
+    background-color: black;
+    display: flex;
+    box-shadow: 1px 1px 1px 1px gray;
+    margin-bottom: 3px;
+    .user_image {
+      width: 20%;
+      height: 100%;
+      background-color: white;
+      img {
+        width: 100%;
+        height: 80%;
+      }
+    }
+    .user_text {
+      width: 80%;
+      height: 100%;
+      background-color: #fff;
+    }
+
+  }
 }
