@@ -3,24 +3,36 @@
   = link_to root_path do
     %p.management-title Connect
 
+  -if user_signed_in?
+    .my-image
+    .my-name
+      = current_user.nickname
+  - else
+    .my-image
+    .my-name
+      No name
+    
+
   %ul#nav-accordion.sidebar-menu
     = link_to root_path ,class:"mm-title" do
       -# = icon('fas', 'pen-square', class: 'icon')
-      メニュー
+      MENU
+  
 
     %li.mt
+      = link_to  root_path do
+        = icon('fas', 'pen-square', class: 'icon')
+        %span MY PAGE
+
+    %li.sub-menu
       = link_to new_tweet_path do
-        -# = icon('fas', 'pen-square', class: 'icon')
-        %span 投稿
-    -# %li.sub-menu
-    -#   = link_to root_path do
-    -#     = icon('fas', 'pen-square', class: 'icon')
-    -#     %span メニュー登録
+        = icon('fas', 'pen-square', class: 'icon')
+        %span TWEET
       
-    -# %li.sub-menu
-    -#   = link_to root_path do
-    -#     = icon('fas', 'pen-square', class: 'icon')
-    -#     %span スタッフ登録
+    %li.sub-menu
+      = link_to root_path do
+        = icon('fas', 'pen-square', class: 'icon')
+        %span BOARD
     
     -# %li.sub-menu
     -#   = link_to root_path do

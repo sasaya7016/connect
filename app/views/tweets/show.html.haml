@@ -1,19 +1,15 @@
-.review
-  .review__tweets
-    %h1 投稿
-    %p お店の商品や利用していただいた方へ
-    %p ご要望・ご指摘がございましたら、ご記入ください。
-    .review-lists
-      .review-lists__list
-        .day-name
-          .date-time
-            = @tweet.created_at.strftime('%Y/%m/%d %H:%M')
-          .user-name
-            = @tweet.user.nickname
-          .select-list
-            = link_to '削除', "/tweets/#{tweet.id}", method: :delete
-
-        .text
-          = simple_format @tweet.text
-
-  
+.review-lists
+  = @nickname
+  .review-lists__list
+    .user_image
+      = simple_format(@tweet.text)
+    
+    .user_text
+      .date-time
+        = @tweet.created_at.strftime('%Y/%m/%d %H:%M')
+      .user_name
+        = @tweet.name
+    .link
+      -if user_signed_in? && current_user.id == @tweet.user_id
+        = link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get
+        = link_to '削除', "/tweets/#{@tweet.id}", method: :delete

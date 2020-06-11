@@ -1,0 +1,10 @@
+.contents.row
+  = @nickname 
+  さんの投稿一覧
+
+  -@tweets.each do |tweet|
+    .content_post
+      = simple_format(tweet.text) 
+      %span.name
+        = tweet.name 
+  = paginate(@tweets)
