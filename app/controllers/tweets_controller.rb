@@ -5,6 +5,9 @@ class TweetsController < ApplicationController
   def index
     if user_signed_in?
       @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(10)
+      # 検索
+      @q = Tweet.ransack(params[:q])
+      @searches = @q.result(distinct: true)
     else
       redirect_to new_user_session_path
     end
@@ -20,6 +23,8 @@ class TweetsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @tweet.comments.includes(:user)
   end
 
   def edit
@@ -37,6 +42,11 @@ class TweetsController < ApplicationController
     redirect_to action: :index 
   end
 
+  def search
+    @q = Tweet.search(search_params)
+    @searches = @q.result(distinct: true)
+  end
+
   private
   def tweet_params
     params.require(:tweet).permit(:name, :image, :text).merge(user_id: current_user.id)
@@ -48,5 +58,9 @@ class TweetsController < ApplicationController
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?
+  end
+
+  def search_params
+    params.require(:q).permit!
   end
 end
