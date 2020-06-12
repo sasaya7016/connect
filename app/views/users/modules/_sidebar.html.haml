@@ -21,19 +21,19 @@
   
 
     %li.mt
-      = link_to  user_path(current_user.id) do
+      = link_to  root_path do
         = icon('fas', 'pen-square', class: 'icon')
-        %span MY PAGE
+        %span My Profile
 
     %li.sub-menu
       = link_to new_tweet_path do
         = icon('fas', 'pen-square', class: 'icon')
-        %span TWEET
+        %span My Tweet
       
-    %li.sub-menu
-      = link_to root_path do
-        = icon('fas', 'pen-square', class: 'icon')
-        %span BOARD
+    -# %li.sub-menu
+    -#   = link_to root_path do
+    -#     = icon('fas', 'pen-square', class: 'icon')
+    -#     %span BOARD
     
     -# %li.sub-menu
     -#   = link_to root_path do
