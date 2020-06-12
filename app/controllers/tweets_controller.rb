@@ -1,13 +1,12 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: [:edit, :show]
   before_action :move_to_index, except: [:index, :show]
+  before_action :search_action,only: [:index, :new, :show, :edit]
 
   def index
     if user_signed_in?
       @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(10)
-      # 検索
-      @q = Tweet.ransack(params[:q])
-      @searches = @q.result(distinct: true)
+
     else
       redirect_to new_user_session_path
     end
@@ -58,6 +57,11 @@ class TweetsController < ApplicationController
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?
+  end
+
+  def search_action
+    @q = Tweet.ransack(params[:q])
+    @searches = @q.result(distinct: true)
   end
 
   def search_params
