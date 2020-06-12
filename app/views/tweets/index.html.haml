@@ -1,6 +1,6 @@
 
   
-
+= render "tweets/modules/header"
 = render "tweets/modules/sidebar"
 
 
@@ -28,6 +28,11 @@
 
         .user_name
           = simple_format tweet.text
+
+        .kuchikomi
+          ■
+        .like
+          ♡
           
      
   = paginate(@tweets)

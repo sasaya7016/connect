@@ -3,7 +3,11 @@ class TweetsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(10)
+    if user_signed_in?
+      @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(10)
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def new

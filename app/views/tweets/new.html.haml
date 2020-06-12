@@ -1,3 +1,8 @@
+= render "tweets/modules/header"
+= render "tweets/modules/sidebar"
+= render "tweets/modules/subbar"
+
+
 .review-form
   = form_with(model: @tweet, local: true) do |f|
     -# = f.text_field :name, placeholder: "Nickname"

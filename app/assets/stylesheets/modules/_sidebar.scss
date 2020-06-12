@@ -17,12 +17,37 @@ a, a:hover, a:focus {
 }
 
 #sidebar .management-title{
-color: #f2f2f2;
+  color: #f2f2f2;
   font-weight: 700;
   font-size: 40px;
   font-family: 'Caveat', sans-serif;
   text-align: center;
   margin-top: 10px;
+}
+
+// 画像なし
+#sidebar .my-image {
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: #eee;
+}
+
+// 画像あり
+#sidebar img {
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: #eee;
+}
+
+#sidebar .my-name {
+  text-align: center;
+  color: #eee;
 }
 
 #sidebar .mm-title {
@@ -54,7 +79,7 @@ ul.sidebar-menu , ul.sidebar-menu li ul.sub{
 }
 
 ul.sidebar-menu {
-  margin-top: 75px;
+  margin-top: 55px;
 }
 
 #sidebar > ul > li > ul.sub {
