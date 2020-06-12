@@ -15,8 +15,11 @@
   -@tweets.each do |tweet|
     .review-lists__list
       .user_image
-        = image_tag tweet.image.url
-        = tweet.user.nickname
+        .my-image
+          =link_to image_tag("gest.fujita.jpeg",class:"top-logo")
+          -# = image_tag tweet.image.url
+        .my-name
+          = tweet.user.nickname
       .user_text
         .date-time
           = tweet.created_at.strftime('%Y/%m/%d %H:%M')
