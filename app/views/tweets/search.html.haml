@@ -1,0 +1,22 @@
+= render "tweets/modules/header"
+= render "tweets/modules/sidebar"
+= render "tweets/modules/subbar"
+
+
+.review-lists
+  -@searches.each do |tweet|
+    .review-lists__list
+      .user_image
+        = image_tag tweet.image.url
+        = tweet.user.nickname
+      .user_text
+        .date-time
+          = tweet.created_at.strftime('%Y/%m/%d %H:%M')
+          .link
+            = link_to '詳細', "/tweets/#{tweet.id}", method: :get 
+            -if user_signed_in? && current_user.id == tweet.user_id
+              = link_to '編集', "/tweets/#{tweet.id}/edit", method: :get
+              = link_to '削除', "/tweets/#{tweet.id}", method: :delete 
+
+        .user_name
+          = simple_format tweet.text
