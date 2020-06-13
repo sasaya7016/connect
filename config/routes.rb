@@ -6,5 +6,11 @@ Rails.application.routes.draw do
   resources :tweets do
     resources :comments, only: [:create, :destroy]
   end
-  resources :users,only: :show
+
+  get "messages/index"
+  get "groups/index"
+  resources :groups do
+    resources :messages
+  end
+  resources :users,only: [:index, :edit, :update, :show]
 end
