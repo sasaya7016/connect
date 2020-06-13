@@ -13,7 +13,6 @@
     .my-name
       No name
     
-
   %ul#nav-accordion.sidebar-menu
     = link_to root_path ,class:"mm-title" do
       -# = icon('fas', 'pen-square', class: 'icon')
@@ -31,9 +30,9 @@
         %span TWEET
       
     %li.sub-menu
-      = link_to root_path do
+      = link_to groups_path do
         = icon('fas', 'pen-square', class: 'icon')
-        %span BOARD
+        %span CHAT
     
     -# %li.sub-menu
     -#   = link_to root_path do
