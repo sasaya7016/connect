@@ -1,6 +1,11 @@
-.chat-main
+= render "tweets/modules/side_bar"
+= render 'messages/chat_header'
+
+.chat-title
+  .chat-title__explanation
+    %h1 Group-chat
   .header-a
-    .header__group
+    .header-a__group
       %h2.header__group__name
         = @group.name
       %p.header__group__member 
@@ -9,6 +14,12 @@
           = user.name
     %p.header__group-edit
       = link_to 'Edit', edit_group_path(@group) 
+      = link_to new_group_path do
+        = icon('fas', 'edit', class: 'icon')
+  
+
+.chat-main
+  
 
 
   .message
