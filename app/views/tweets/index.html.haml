@@ -1,44 +1,42 @@
-
-  
 = render "tweets/modules/header"
-= render "tweets/modules/sidebar"
+= render "tweets/modules/side_bar"
+= render "tweets/modules/sub_bar"
 
+.tweet-title
+  .tweet-title__explanation
+    %h1 HOME
 
-.review
-  .review__tweets
-    %h1 投稿
-    %p お店の商品や利用していただいた方へ
-    %p ご要望・ご指摘がございましたら、ご記入ください。
-
-
-.review-lists
+.tweet-lists
   -@tweets.each do |tweet|
-    .review-lists__list
-      .user_image
-        .my-image
+    .tweet-lists__list
+      .user-tweet
+        .user-tweet__image
           =link_to image_tag("gest.fujita.jpeg",class:"top-logo")
           -# = image_tag tweet.image.url
-        .my-name
+        .user-tweet__nickname
           = tweet.user.nickname
-      .user_text
-        .date-time
-          = tweet.created_at.strftime('%Y/%m/%d %H:%M')
-          .link
-            = link_to '詳細', "/tweets/#{tweet.id}", method: :get 
-            -if user_signed_in? && current_user.id == tweet.user_id
-              = link_to '編集', "/tweets/#{tweet.id}/edit", method: :get
-              = link_to '削除', "/tweets/#{tweet.id}", method: :delete 
+      .user-text
+        =link_to tweet_path(tweet.id) do
+          .user-text__first
+            .date-time
+              = tweet.created_at.strftime('%Y/%m/%d')
+            .tweet-link
+              = link_to '詳細', "/tweets/#{tweet.id}", method: :get 
+              -if user_signed_in? && current_user.id == tweet.user_id
+                = link_to '編集', "/tweets/#{tweet.id}/edit", method: :get
+                = link_to '削除', "/tweets/#{tweet.id}", method: :delete 
+        
+        .user-text__second
+          .user_name
+            = simple_format tweet.text
 
-        .user_name
-          = simple_format tweet.text
-
-        .kuchikomi
-          ■
-        .like
-          ♡
+        .user-text__third
+          .kuchikomi
+            ■
+          .like
+            ♡
           
      
   = paginate(@tweets)
            
             
-= render "tweets/modules/subbar"
