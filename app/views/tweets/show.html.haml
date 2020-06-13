@@ -1,40 +1,53 @@
--# = render "tweets/modules/header"
--# = render "tweets/modules/sidebar"
--# = render "tweets/modules/subbar"
+= render "tweets/modules/header"
+= render "tweets/modules/side_bar"
+= render "tweets/modules/sub_bar"
 
-.review-lists
-  = @nickname
-  .review-lists__list
-    .user_image
-      = image_tag @tweet.image.url
-      = simple_format(@tweet.text)
-    
-    .user_text
-      .date-time
-        = @tweet.created_at.strftime('%Y/%m/%d %H:%M')
-      .user_name
-        = @tweet.name
+.tweet-title-show
+  .tweet-title-show__explanation
+    %h1 詳細
+
+.tweet-lists-show
+  .tweet-lists-show__first
+    .user-image
+      =link_to image_tag("gest.fujita.jpeg"),root_path,class:"user-image"
+    .user-nickname
+      = @tweet.user.nickname
+    .date-time
+      = @tweet.created_at.strftime('%Y/%m/%d %H:%M')
     .link
       -if user_signed_in? && current_user.id == @tweet.user_id
         = link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get
         = link_to '削除', "/tweets/#{@tweet.id}", method: :delete
 
-.container
-  -if current_user
-    = form_with(model: [@tweet, @comment], local: true) do |f|
-      = f.text_area :text, placeholder: "コメントする", rows: "2" 
-      = f.submit "SEND"
-  -else
-    %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+  .tweet-lists-show__second
+    .tweet-image
+      -if @tweet.image.url.nil?
+      -else
+        = image_tag @tweet.image.url
 
+  .tweet-lists-show__third
+    .tweet-text
+      = simple_format(@tweet.text)
 
-.comments
-  %h4 コメント
-  -if @comments
-    -@comments.each do |comment|
-      %p
-        = link_to comment.user.nickname, "/users/#{comment.user_id}" 
-        = comment.text
-      .link
-        -if user_signed_in? && current_user.id == comment.user_id 
-          = link_to '削除', "/tweets/#{@tweet.id}/comments/#{comment.id}", method: :delete
+    
+    .tweet-comments
+      %h4 コメント
+      -if @comments
+        -@comments.each do |comment|
+          %p
+            = link_to comment.user.nickname, "/users/#{comment.user_id}" 
+            = simple_format comment.text
+          .link
+            -if user_signed_in? && current_user.id == comment.user_id 
+              = link_to '削除', "/tweets/#{@tweet.id}/comments/#{comment.id}", method: :delete
+
+    .tweet-comments-form
+      -if current_user
+        = form_with(model: [@tweet, @comment], local: true) do |f|
+          = f.text_area :text, placeholder: "コメントする", rows: "2" 
+          %br
+          = f.submit "SEND"
+      -else
+        %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+      
+   

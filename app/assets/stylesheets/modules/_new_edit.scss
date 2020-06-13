@@ -1,0 +1,30 @@
+.tweet-title-new {
+  width: calc(100% - 210px - 350px);
+  height: 70px;
+  background-color: #bbb;
+  position: fixed;
+  top: 30px;
+  left: 210px;
+  &__explanation {
+    h1 {
+      text-align: center;
+    }
+  }
+}
+
+.tweet-form {
+  width: calc(100% - 210px - 350px);
+  height: calc(100% - 100px);
+  background-color: #eee;
+  position: fixed;
+  overflow: scroll;
+  top: 100px;
+  left: 210px;
+  padding: 3px;
+  textarea {
+    width: 98%;
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+  }
+}

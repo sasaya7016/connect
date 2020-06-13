@@ -1,7 +1,17 @@
-.review-form
+= render "tweets/modules/header"
+= render "tweets/modules/side_bar"
+= render "tweets/modules/sub_bar"
+
+.tweet-title-new
+  .tweet-title-show__explanation
+    %h1 編集
+
+.tweet-form
   = form_with(model: @tweet, local: true) do |f|
-    = f.text_field :name, placeholder: "Nickname"
-    = f.file_field :image, placeholder: "Image Url"
+    投稿文
     = f.text_area :text, placeholder: "text" , rows: "120" 
+    %br
+    = f.file_field :image,class:"tweet-form-image"
+    %br
     = f.submit "SEND"
  
