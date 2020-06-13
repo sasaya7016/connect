@@ -41,6 +41,7 @@ class TweetsController < ApplicationController
   end
 
   def search
+    @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(10)
     @q = Tweet.search(search_params)
     @searches = @q.result(distinct: true)
   end
