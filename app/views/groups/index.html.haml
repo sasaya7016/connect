@@ -6,5 +6,8 @@
 .group-title
   .tweet-title__explanation
     %h1 chat
-
-.group-lists
+  
+  .header
+    %p.header__group-edit 
+      = link_to new_group_path do
+        = icon('fas', 'edit', class: 'icon')
