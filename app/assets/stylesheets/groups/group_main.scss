@@ -1,0 +1,23 @@
+.group-title {
+  width: calc(100% - 210px - 350px);
+  height: 70px;
+  background-color: #eee;
+  position: fixed;
+  top: 30px;
+  left: 210px;
+  &__explanation {
+
+
+  }
+}
+ 
+.group-lists {
+  width: calc(100% - 210px - 350px);
+  height: calc(100% - 100px);
+  background-color: #ccc;
+  position: fixed;
+  overflow: scroll;
+  margin-top: 100px;
+  left: 210px;
+  padding: 3px;
+}
