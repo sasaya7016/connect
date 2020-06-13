@@ -5,4 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :tweets
   has_many :comments
+  has_many :group_users
+  has_many :groups, through: :group_users
+  has_many :messages
+
+  validates :name, presence: true, uniqueness: true
 end
