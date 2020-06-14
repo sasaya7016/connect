@@ -31,10 +31,10 @@
             = simple_format tweet.text
 
         .user-text__third
-          .kuchikomi
-            ■
-          .like
-            ♡
+          -# .kuchikomi
+          -#   ■
+          %i.fas.fa-heart
+            = tweet.likes_count
           
      
   = paginate(@tweets)
