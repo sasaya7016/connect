@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
   root "tweets#index"
 
   get "tweets/search"
@@ -19,7 +21,7 @@ Rails.application.routes.draw do
     member do
       get :profile
     end
-    
+
     resources :tweets do
       resources :comments, only: [:create, :destroy]
       resources :likes, only: [:create, :destroy]
