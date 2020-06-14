@@ -1,0 +1,117 @@
+
+#device-sidebar {
+  width: 210px;
+  height: 100%;
+  position: fixed;
+  font-family: 'Roboto', sans-serif;
+  h1 {
+    font-family: 'Caveat', sans-serif;
+  }
+}
+
+.device-new-sidebar {
+  background-color: #2f323a;
+}
+
+#device-sidebar h1{
+  color: #f2f2f2;
+  font-weight: 700;
+  font-size: 40px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+// 画像なし
+#device-sidebar.my-image {
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: #2f323a;
+}
+
+// 画像あり
+#device-sidebar img {
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: #2f323a;
+}
+
+#device-sidebar.my-name {
+  text-align: center;
+  color: #eee;
+}
+
+#device-sidebar ul li {
+  position: relative;
+}
+
+#device-sidebar.sub-menu > .sub li  {
+  padding-left: 32px;
+}
+
+#device-sidebar.sub-menu > .sub li:last-child {
+  padding-bottom: 10px;
+}
+
+.nav-collapse.collapse {
+  display: inline;
+}
+
+ul.device-sidebar-menu {
+  margin-top: 55px;
+  padding: 15px;
+  color: #eee;
+}
+
+
+
+
+.back {
+  background-image: url(Sign-in-up.jpg);
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  .back-plus {
+    background-color: black;
+    opacity: 0.6;
+    width: 100%;
+    height: 100vh;
+  }
+}
+
+
+
+
+
+
+
+.sign {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #eee;
+  padding-top: 100px;
+  position: fixed;
+  overflow: scroll;
+  a {
+    color: #eee;
+  }
+  h2 {
+    font-size: 40px;
+  }
+  input {
+    width: 300px;
+  }
+  &__set {
+    width: 100%;
+
+   
+   
+  }
+  
+}
