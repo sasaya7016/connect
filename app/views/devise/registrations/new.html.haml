@@ -10,7 +10,12 @@
           = f.label :nickname
           %em (6 characters maximum)
           %br/
-          = f.text_field :nickname, autofocus: true, maxlength: "6"
+          = f.text_field :nickname, autofocus: true, maxlength: "8"
+        -# .field  
+        -#   = f.label :name
+        -#   %em (6 characters maximum)
+        -#   %br/
+        -#   = f.text_field :name
         .field
           = f.label :email
           %br/
