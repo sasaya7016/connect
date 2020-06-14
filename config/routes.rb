@@ -14,7 +14,12 @@ Rails.application.routes.draw do
     resources :messages
   end
 
+ 
   resources :users,only: [:index, :edit, :update, :show] do
+    member do
+      get :profile
+    end
+    
     resources :tweets do
       resources :comments, only: [:create, :destroy]
       resources :likes, only: [:create, :destroy]

@@ -1,0 +1,23 @@
+=render "users/modules/sidebar"
+=render "users/modules/header"
+=render "users/modules/sub_bar"
+
+.profile
+  .profile__top
+
+
+.profile-lists
+  .profile-lists__top
+    .profile-image
+      =image_tag("gest.fujita.jpeg",class:"top-logo")
+      -# =img_tag
+      -# =current_user.image
+    .profile-text
+      .profile-text__name
+        =current_user.name
+      .profile-text__nickname
+        =current_user.nickname
+      .profile-text__email
+        =current_user.email
+
+  .profile-lists__profile

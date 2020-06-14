@@ -14,4 +14,8 @@ class UsersController < ApplicationController
     @tweets = current_user.tweets
     @tweets = user.tweets.page(params[:page]).per(5).order("created_at DESC")
   end
+
+  def profile
+    # user = User.find(params[:id])
+  end
 end
