@@ -1,4 +1,4 @@
-#sidebar.nav-collapse
+#sidebar.nav-collapse.user-sidebar
   / sidebar menu start
   = link_to root_path do
     %p.management-title Connect
@@ -15,25 +15,25 @@
     
 
   %ul#nav-accordion.sidebar-menu
-    = link_to root_path ,class:"mm-title" do
-      -# = icon('fas', 'pen-square', class: 'icon')
-      MENU
+    = link_to "#",class:"mm-title" do
+      = icon('fas', 'pen-square', class: 'icon')
+      Menu
   
 
     %li.mt
-      = link_to  root_path do
+      = link_to root_path do
         = icon('fas', 'pen-square', class: 'icon')
-        %span My Profile
+        %span HOME
 
+    %li.sub-menu
+      = link_to  user_path(current_user.id) do
+        = icon('fas', 'pen-square', class: 'icon')
+        %span MY Profile
+      
     %li.sub-menu
       = link_to new_tweet_path do
         = icon('fas', 'pen-square', class: 'icon')
         %span My Tweet
-      
-    -# %li.sub-menu
-    -#   = link_to root_path do
-    -#     = icon('fas', 'pen-square', class: 'icon')
-    -#     %span BOARD
     
     -# %li.sub-menu
     -#   = link_to root_path do

@@ -12,8 +12,15 @@ a, a:hover, a:focus {
   width: 210px;
   height: 100%;
   position: fixed;
-  background: #2f323a;
   font-family: 'Roboto', sans-serif;
+}
+
+.tweet-sidebar {
+  background: #2f323a;
+}
+
+.user-sidebar {
+  background: #7f523a;
 }
 
 #sidebar .management-title{

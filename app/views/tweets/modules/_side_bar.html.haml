@@ -1,4 +1,4 @@
-#sidebar.nav-collapse
+#sidebar.nav-collapse.tweet-sidebar
   / sidebar menu start
   = link_to root_path do
     %p.management-title Connect
@@ -14,7 +14,7 @@
       No name
     
   %ul#nav-accordion.sidebar-menu
-    = link_to root_path ,class:"mm-title" do
+    = link_to "#",class:"mm-title" do
       -# = icon('fas', 'pen-square', class: 'icon')
       MENU
   
