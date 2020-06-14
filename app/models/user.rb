@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :group_users
   has_many :groups, through: :group_users
   has_many :messages
+  has_many :likes, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
 end

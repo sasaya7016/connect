@@ -30,6 +30,10 @@
     .tweet-text
       = simple_format(@tweet.text)
 
+    .tweet-button-container
+      .tweet-button-container__left
+        = render partial: 'likes/like', locals: { tweet: @tweet, tweets: @tweets, likes: @likes, like: @like}
+
     
     .tweet-comments
       %h4 コメント

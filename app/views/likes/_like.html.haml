@@ -1,0 +1,23 @@
+-# #ユーザーがサインインしているかどうか
+- if user_signed_in?
+  -# #ログインしているユーザーがすでに「いいね」しているかどうか
+  - if tweet.like_user(current_user.id)
+    .tweet-button-container__left__dislike
+      =link_to user_tweet_like_path(current_user, tweet), method: "DELETE", remote: true do
+        %i.fas.fa-heart
+        %span いいね！
+        %span 
+          = tweet.likes_count
+  - else
+    .tweet-button-container__left__like
+      =link_to user_tweet_likes_path(current_user, tweet), method: "POST", remote: true do
+        %i.fas.fa-heart
+        %span いいね！
+        %span
+          = tweet.likes_count
+-else
+  .tweet-button-container__left__like
+    %i.fas.fa-heart
+      %span いいね！
+      %span 
+        = tweet.like_count
