@@ -1,3 +1,17 @@
+-# .chat-title
+-#   .chat-title__explanation
+-#     %h1 Group-chat
+-#   .header-a
+-#     .header-a__group
+-#       %h2.header__group__name
+-#         = @group.name
+-#       %p.header__group__member 
+-#         Member :
+-#         - @group.users.each do |user|
+-#           = user.nickname
+
+
+
 .side-bar
   .header
   
@@ -10,4 +24,4 @@
           .group__name
             = group.name
           .group__message
-            メッセージはまだありません
+            = group.show_last_message

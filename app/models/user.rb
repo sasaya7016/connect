@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   validates :nickname, presence: true, uniqueness: true
+  mount_uploader :icon_image, UserIconUploader
 end

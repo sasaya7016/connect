@@ -18,9 +18,9 @@ Rails.application.routes.draw do
 
  
   resources :users,only: [:index, :edit, :update, :show] do
-    member do
-      get :profile
-    end
+    # member do
+    #   get :profile
+    # end
 
     resources :tweets do
       resources :comments, only: [:create, :destroy]
