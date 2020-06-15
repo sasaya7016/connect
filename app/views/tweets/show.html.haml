@@ -9,7 +9,9 @@
 .tweet-lists-show
   .tweet-lists-show__first
     .user-image
-      =link_to image_tag("gest.fujita.jpeg"),root_path,class:"user-image"
+      -if current_user.icon_image.url.nil?
+      -else
+        =link_to image_tag(current_user.icon_image.url)
     .user-nickname
       = @tweet.user.nickname
     .date-time

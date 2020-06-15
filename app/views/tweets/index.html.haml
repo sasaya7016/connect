@@ -11,8 +11,10 @@
     .tweet-lists__list
       .user-tweet
         .user-tweet__image
-          =link_to image_tag("gest.fujita.jpeg",class:"top-logo")
-          -# = image_tag tweet.image.url
+          -# -if tweet.user.icon_image.url.nil?
+          -# -else
+          -#   = image_tag tweet.user.icon_image.image.url
+          -# =tweet.icon_image
         .user-tweet__nickname
           = tweet.user.nickname
       .user-text

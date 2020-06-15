@@ -5,7 +5,9 @@
 
   -if user_signed_in?
     .my-image
-      =link_to image_tag("gest.fujita.jpeg",class:"top-logo"),root_path
+      -if current_user.icon_image.url.nil?
+      -else
+        =link_to image_tag(current_user.icon_image.url)
     .my-name
       = current_user.nickname
   - else

@@ -11,7 +11,7 @@
       %p.header__group__member 
         Member :
         - @group.users.each do |user|
-          = user.name
+          = user.nickname
     %p.header__group-edit
       = link_to 'Edit', edit_group_path(@group) 
       = link_to new_group_path do
@@ -23,6 +23,7 @@
 
 
   .message
+    = render 'layouts/modules/notifications'
     = render @messages
   
 

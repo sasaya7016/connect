@@ -2,16 +2,13 @@
   / sidebar menu start
   = link_to root_path do
     %p.management-title Connect
-
-  -if user_signed_in?
+ 
     .my-image
-      =link_to image_tag("gest.fujita.jpeg",class:"top-logo"),root_path
+      -if current_user.icon_image.url.nil?
+      -else
+        = image_tag(current_user.icon_image.url)
     .my-name
       = current_user.nickname
-  - else
-    .my-image
-    .my-name
-      No name
     
   %ul#nav-accordion.sidebar-menu
     = link_to "#",class:"mm-title" do

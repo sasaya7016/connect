@@ -1,16 +1,60 @@
 =render "users/modules/sidebar"
 =render "users/modules/header"
 =render "users/modules/sub_bar"
-.profile
-  .profile__top
 
-.contents.row
-  = @nickname 
-  さんの投稿一覧
 
-  -@tweets.each do |tweet|
-    .content_post
-      = simple_format(tweet.text) 
-      %span.name
-        -# = tweet.name 
-  = paginate(@tweets)
+
+
+.profile-lists
+  .profile-lists__top
+    .profile-image
+      -if @icon_image.url.nil?
+      -else
+        = image_tag @icon_image.url
+
+    .profile-text
+      .profile-text__nickname
+        =current_user.nickname
+      .profile-text__email
+        =current_user.email
+      .profile-text__profile
+        -# =current_user.
+
+
+  .my-tweet
+    = @nickname 
+    さんの投稿一覧   
+    .my-tweet__lists
+      -@tweets.each do |tweet|
+
+        .tweet-lists__list
+          .user-tweet
+            .user-tweet__image
+              -if current_user.icon_image.url.nil?
+              -else
+                =link_to image_tag(current_user.icon_image.url)
+            .user-tweet__nickname
+              -# = tweet
+          .user-text
+            =link_to tweet_path(tweet.id) do
+              .user-text__first
+                .date-time
+                  = tweet.created_at.strftime('%Y/%m/%d')
+                .tweet-link
+                  = link_to '詳細', "/tweets/#{tweet.id}", method: :get 
+                  -if user_signed_in? && current_user.id == tweet.user_id
+                    = link_to '編集', "/tweets/#{tweet.id}/edit", method: :get
+                    = link_to '削除', "/tweets/#{tweet.id}", method: :delete 
+        
+              .user-text__second
+                .user_name
+                  = simple_format(tweet.text)
+
+              .user-text__third
+                -# .kuchikomi
+                -#   ■
+                %i.fas.fa-heart
+                  = tweet.likes_count
+      = paginate(@tweets)
+
+
