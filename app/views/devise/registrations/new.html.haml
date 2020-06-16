@@ -1,6 +1,6 @@
 .back
   .back-plus    
-    = render "device_side"
+    -# = render "device_side"
     .sign
       .sign__set
       %h2 Sign up
@@ -11,11 +11,6 @@
           %em (6 characters maximum)
           %br/
           = f.text_field :nickname, autofocus: true, maxlength: "6"
-        -# .field  
-        -#   = f.label :name
-        -#   %em (6 characters maximum)
-        -#   %br/
-        -#   = f.text_field :name
         .field
           = f.label :email
           %br/
