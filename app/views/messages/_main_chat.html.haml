@@ -3,19 +3,19 @@
 
 .chat-title
   .chat-title__explanation
-    %h1 Group-chat
+    %h1
+      グループ:
+      = @group.name
   .header-a
     .header-a__group
       %h2.header__group__name
-        = @group.name
+        
       %p.header__group__member 
         Member :
         - @group.users.each do |user|
           = user.nickname
     %p.header__group-edit
-      = link_to 'Edit', edit_group_path(@group) 
-      = link_to new_group_path do
-        = icon('fas', 'edit', class: 'icon')
+      = link_to 'グループ編集', edit_group_path(@group) 
   
 
 .chat-main
@@ -29,7 +29,7 @@
 
 
   .forms
-    = form_for [@group, @message] do |f|
+    = form_with model: [@group, @message] do |f|
       .form
         = f.text_field :content, class: 'form__text',    placeholder: 'type a message'
         .input

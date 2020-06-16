@@ -7,10 +7,16 @@
   left: 210px;
   &__explanation {
 
-
+  }
+  &__header {
+    .group-new {
+      
+    }
   }
 }
  
+
+
 .group-lists {
   width: calc(100% - 210px - 350px);
   height: calc(100% - 100px);

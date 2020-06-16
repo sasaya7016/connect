@@ -13,7 +13,7 @@
         .user-tweet__image
           -# -if tweet.user.icon_image.url.nil?
           -# -else
-          -#   = image_tag tweet.user.icon_image.image.url
+          = tweet.user.icon_image 
           -# =tweet.icon_image
         .user-tweet__nickname
           = tweet.user.nickname
