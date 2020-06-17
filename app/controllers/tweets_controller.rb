@@ -4,11 +4,13 @@ class TweetsController < ApplicationController
   before_action :search_action,only: [:index, :new, :show, :edit]
 
   def index
-    if user_signed_in?
-      @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(10)
-    else
-      redirect_to new_user_session_path
-    end
+
+    @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(10)
+    # if user_signed_in?
+    #   @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(10)
+    # else
+    #   redirect_to new_user_session_path
+    # end
   end
 
   def new

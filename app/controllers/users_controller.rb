@@ -10,7 +10,6 @@ class UsersController < ApplicationController
         redirect_to user_path(current_user.id)
       else
         redirect_to edit_user_path(current_user.id)
-
     end
   end
 
