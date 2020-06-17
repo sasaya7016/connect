@@ -11,10 +11,14 @@
     .tweet-lists__list
       .user-tweet
         .user-tweet__image
-          -# -if tweet.user.icon_image.url.nil?
+          -# -tweet.users.each do |user|
+          -# - if tweet.current_user != tweet.user.id
+          -# -if tweet.user.icon_image?
+          -# = image_tag tweet.user.icon_image.image.url
+          -# = image_tag("gest.fujita.jpeg")
+          = tweet.user.icon_image
           -# -else
-          = tweet.user.icon_image 
-          -# =tweet.icon_image
+            
         .user-tweet__nickname
           = tweet.user.nickname
       .user-text

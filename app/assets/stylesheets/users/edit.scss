@@ -1,17 +1,15 @@
 .user-edit {
   width: calc(100% - 210px - 350px);
-  height: 70px;
-  background-color: #eee;
   position: fixed;
   top: 30px;
   left: 210px;
-   
 }
+
 
 .account-page {
   .account-page__inner {
     width: 100%;
-    margin: 60px auto;
+    // margin: 60px auto;
     padding: 60px;
     background-color: #fff;
 
@@ -122,6 +120,7 @@
     }
   }
 }
+
 
 // #error_explanation {
 //   margin: 20px 0;
