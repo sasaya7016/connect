@@ -50,10 +50,10 @@
 
     .tweet-comments-form
       -if current_user
-        = form_with(model: [@tweet, @comment], local: true) do |f|
-          = f.text_area :text, placeholder: "コメントする", rows: "2" 
+        = form_with(model: [@tweet, @comment], local: true, id: "new_comment") do |f|
+          = f.text_area :text, placeholder: "コメントする", rows: "2" , class: "textbox"
           %br
-          = f.submit "SEND"
+          = f.submit "SEND", class: "form__submit"
       -else
         %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
       
