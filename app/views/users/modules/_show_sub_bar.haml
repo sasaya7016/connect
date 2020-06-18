@@ -5,7 +5,10 @@
     -@users.each do |u|
       .new-userlists
         .new-userlists__image
-          =image_tag u.icon_image.url
+          -if u.icon_image.present?
+            =image_tag u.icon_image.url
+          -else
+            
         .new-userlists__name
           =link_to user_path(u.id) do
             = u.nickname
