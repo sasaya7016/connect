@@ -12,69 +12,24 @@ User.create!(
   email: "admin@gmail.com",
   password:  "00000000",
   password_confirmation: "00000000",
+  profile:"ここの管理者をしております。よろしくお願いいたします。",
   # admin: true
 )
 
 User.create!(
-  name: "山田",
-  nickname:  "TEST1",
+  name: "テスト1",
+  nickname:  "テスト1",
   email: "test1@gmail.com",
   password:  "11111111",
   password_confirmation: "11111111",
+  profile:"初めまして、テスト１です。よろしくお願いいたします。",
 )
 
 User.create!(
-  name: "井上",
-  nickname:  "TEST2",
+  name: "テスト2",
+  nickname:  "テスト2",
   email: "test2@gmail.com",
   password:  "22222222",
   password_confirmation: "22222222",
+  profile:"初めまして、テスト２です。よろしくお願いいたします。",
 )
-
-# Group_user.create!(
-#   group_id: "1",
-#   user_id: "1",
-# )
-
-# Group_user.create!(
-#   group_id: "2",
-#   user_id: "1",
-# )
-
-# Group_user.create!(
-#   group_id: "1",
-#   user_id: "2",
-# )
-
-# Group_user.create!(
-#   group_id: "2",
-#   user_id: "2",
-# )
-
-# Group_user.create!(
-#   group_id: "1",
-#   user_id: "3",
-# )
-
-# Group.create!(
-#   name: "A",
-# )
-# Group.create!(
-#   name: "B",
-# )
-
-
-# Message.create!(
-#   content: "test1",
-#   image: "test1",
-# )
-
-# Message.create!(
-#   content: "test2",
-#   image: "test2",
-# )
-
-# Message.create!(
-#   content: "test2",
-#   image: "test2",
-# )

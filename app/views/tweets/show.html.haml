@@ -9,9 +9,10 @@
 .tweet-lists-show
   .tweet-lists-show__first
     .user-image
-      -if current_user.icon_image.url.nil?
+      - if @tweet.user.icon_image.present?
+        = image_tag @tweet.user.icon_image.url
       -else
-        =link_to image_tag(current_user.icon_image.url)
+
     .user-nickname
       = @tweet.user.nickname
     .date-time

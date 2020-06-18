@@ -1,6 +1,6 @@
 =render "users/modules/sidebar"
 =render "users/modules/header"
-=render "users/modules/sub_bar"
+=render "users/modules/show_sub_bar"
 
 
 
@@ -15,13 +15,13 @@
     .profile-text
       .profile-text__nickname
         %i.far.fa-laugh-squint
-        =current_user.nickname
+        =@nickname
       .profile-text__email
         %i.far.fa-envelope
-        =current_user.email
+        = @email
       .profile-text__profile
         %i.far.fa-id-card
-        =current_user.profile
+        = @profile
 
 
   .my-tweet
@@ -35,7 +35,7 @@
             .user-tweet__image
               -if current_user.icon_image.url.nil?
               -else
-                =link_to image_tag(current_user.icon_image.url)
+                =link_to image_tag tweet.user.icon_image.url
             .user-tweet__nickname
               -# = tweet
           .user-text

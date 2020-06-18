@@ -17,14 +17,14 @@
   
 
     %li.mt
-      = link_to  user_path(current_user.id) do
-        %i.far.fa-user
-        %span MY PAGE
+      -# = link_to  user_path(current_user.id) do
+      -#   %i.far.fa-user
+      -#   %span MY PAGE
 
     %li.sub-menu
-      -# = link_to root_path do
-      -#   = icon('fas', 'pen-square', class: 'icon')
-      -#   %span TWEET
+      = link_to root_path do
+        = icon('fas', 'pen-square', class: 'icon')
+        %span TWEET
       
     %li.sub-menu
       = link_to groups_path do

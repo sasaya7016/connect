@@ -1,0 +1,17 @@
+.user-subbar
+   
+  .user-subbar__lists
+    コネクト新規登録者
+    -@users.each do |u|
+      .new-userlists
+        .new-userlists__image
+          =image_tag u.icon_image.url
+        .new-userlists__name
+          =link_to user_path(u.id) do
+            = u.nickname
+    = paginate(@users)
+    
+  .user-subbar__follow
+    フォロー
+    フォロワー
+    
