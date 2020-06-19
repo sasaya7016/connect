@@ -1,3 +1,6 @@
 .user-list
   -users.each do |user|
-    =user.name
+    -if user.name.nil?
+      0
+    -else
+      =user.name
