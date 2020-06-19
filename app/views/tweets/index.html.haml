@@ -34,10 +34,14 @@
             = simple_format tweet.text
 
         .user-text__third
-          -# .kuchikomi
+          %i.fas.fa-comment
+            = tweet.comments.count
           -#   ■
           %i.fas.fa-heart
-            = tweet.likes_count
+            -if tweet.likes_count == nil
+              0
+            -else
+              = tweet.likes_count
           
      
   = paginate(@tweets)

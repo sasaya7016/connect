@@ -1,5 +1,11 @@
 .tweet-header
   .tweet-header__serch
+    %input.text_field
+    %button submit
+    -# = search_form_for @q, url: tweets_search_path do |f|
+    -#   .form_box
+    -#     = f.text_field :text_cont, class:'search-input',placeholder: "キーワードから探す"
+    -#     = f.submit "検索", class:'search-btn'
 
   .tweet-header__post.grid-1
 
