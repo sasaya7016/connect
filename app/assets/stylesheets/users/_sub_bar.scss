@@ -12,6 +12,7 @@
     height: 40%;
     .new-userlists {
       display: flex;
+      margin-top: 5px;
       &__image {
         width: 40px;
         height: 40px;
@@ -22,6 +23,10 @@
         width: 40px;
         height: 40px;
         border-radius: 50%;
+      }
+      &__name {
+        line-height: 40px;
+        margin-left: 10px;
       }
     }
   }
