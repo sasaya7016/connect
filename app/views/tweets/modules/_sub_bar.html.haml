@@ -1,19 +1,31 @@
 .subbar
   .subbar__nav
-    %h1 機能の説明
-    %h2 TWEET機能
-    %p 投稿/詳細/編集/削除/検索機能
-    %br
-    %br
-    %h2 いいね機能
-    %p 付与/削除
-    %br
-    %br
-    %h2 コメント機能
-    %p 投稿/削除
-    %br
-    %br
-    %h2 チャット機能
-    %p グループ作成/投稿
+    .left-block
+    .right-block
+    .follow
+      .follow__lists
+   
+
+
+
+
+  .ranking
+    %p ランキング(いいね数多いツイート)
+    - @all_ranks.each.with_index(1) do |tweet, i| 
+      .ranking__num
+        第
+        = i
+        位
+        .ranking__num__user
+          =link_to user_path(tweet.id) ,class:"ranking-contentsr" do
+            -if tweet.user.icon_image.present?
+              = image_tag tweet.user.icon_image.url
+            - else
+              .ranking-image
+              
+            = tweet.user.nickname
+        = link_to tweet_path(tweet.id) do
+          = tweet.text
+        %br
     
     

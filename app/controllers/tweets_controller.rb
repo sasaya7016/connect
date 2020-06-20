@@ -2,6 +2,7 @@ class TweetsController < ApplicationController
   before_action :set_tweet, only: [:edit, :show]
   before_action :move_to_index, except: [:index, :show]
   before_action :search_action,only: [:index, :new, :show, :edit]
+  before_action :all_ranks,only: [:index, :new, :show, :edit, :search]
 
   def index
     @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(10)
@@ -55,6 +56,7 @@ class TweetsController < ApplicationController
     redirect_to action: :index unless user_signed_in?
   end
 
+  # -- サーチ機能--
   def search_action
     @q = Tweet.ransack(params[:q])
     @searches = @q.result(distinct: true)
@@ -62,6 +64,11 @@ class TweetsController < ApplicationController
 
   def search_params
     params.require(:q).permit!
+  end
+
+  # -- ランキング機能--
+  def all_ranks
+    @all_ranks = Tweet.find(Like.group(:tweet_id).order('count(tweet_id) desc').limit(3).pluck(:tweet_id))
   end
 
 end
