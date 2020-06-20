@@ -18,7 +18,6 @@ Rails.application.routes.draw do
 
  
   resources :users,only: [:index, :edit, :update, :show] do
-    
     resources :tweets do
       resources :comments, only: [:create, :destroy]
       resources :likes, only: [:create, :destroy]

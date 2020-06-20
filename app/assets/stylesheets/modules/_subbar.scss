@@ -8,6 +8,7 @@
   right: 0;;
   z-index: 5;
   padding: 20px;
+  
   &__nav {
     // width: 80%;
     // height: 200px;
@@ -27,20 +28,27 @@
 
 
   .ranking {
+    a {
+      color: #fff;
+    }
     &__num {
       &__user {
+       
         .ranking-contentsr {
-          .display: flex;
+          display: flex;
+          line-height: 30px;
           img {
             width: 30px;
             height: 30px;
             border-radius: 50%;
+            margin-right: 5px;
           }
           .ranking-image {
             width: 30px;
             height: 30px;
             background-color: gray;
             border-radius: 50%;
+            margin-right: 5px;
           }
         }
       }
