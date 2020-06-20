@@ -11,7 +11,7 @@
       %h2.header__group__name
         
       %p.header__group__member 
-        Member :
+        メンバー :
         - @group.users.each do |user|
           = user.nickname
     %p.header__group-edit
@@ -31,9 +31,9 @@
   .forms
     = form_with model: [@group, @message] do |f|
       .form
-        = f.text_field :content, class: 'form__text',    placeholder: 'type a message'
+        = f.text_field :content, class: 'form__text',    placeholder: 'メッセージの入力をしてください'
         .input
           = f.label :image, class: 'input__file' do
-            = icon('fas', 'image', class: 'image')
+            = icon('fas', 'camera-retro', class: 'image')
             = f.file_field :image, class: 'file'
-      = f.submit 'Send', class: 'send-btn'
+      = f.submit '送信', class: 'send-btn'

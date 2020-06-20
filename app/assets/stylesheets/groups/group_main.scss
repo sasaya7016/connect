@@ -20,10 +20,13 @@
 .group-lists {
   width: calc(100% - 210px - 350px);
   height: calc(100% - 100px);
-  background-color: #ccc;
+  background-color: #fff;
   position: fixed;
   overflow: scroll;
   margin-top: 100px;
   left: 210px;
   padding: 3px;
+  h2 {
+    text-align: center;
+  }
 }

@@ -8,4 +8,43 @@
   right: 0;;
   z-index: 5;
   padding: 20px;
+  &__nav {
+    // width: 80%;
+    // height: 200px;
+    // background-color: #eee;
+    // .left-block {
+    //   width: 50%;
+    //   height: 50px;
+    // }
+    // .right-block {
+    //   width: 50%;
+    //   height: 50px;
+    // }
+  }
+
+
+
+
+
+  .ranking {
+    &__num {
+      &__user {
+
+        .ranking-contentsr {
+          .display: flex;
+          img {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            
+          }
+          .ranking-image {
+            width: 20px;
+            background-color: gray;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
 }

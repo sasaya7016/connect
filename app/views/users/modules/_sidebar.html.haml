@@ -14,38 +14,50 @@
     .my-image
     .my-name
       No name
+  %br
     
 
   %ul#nav-accordion.sidebar-menu
-    = link_to "#",class:"mm-title" do
-      = icon('fas', 'pen-square', class: 'icon')
-      Menu
+    = link_to root_path,class:"mm-title" do
+      = icon('fas', 'bars', class: 'icon')
+      Home / メニュー
   
 
     %li.mt
-      -# = link_to root_path do
-      -#   = icon('fas', 'pen-square', class: 'icon')
-      -#   %span HOME
+      = link_to root_path do
+        = icon('fas', 'pen-square', class: 'icon')
+        %span Home / ツイートリスト
+      
+    %li.sub-menu
+      = link_to groups_path do
+        = icon('far', 'comment', class: 'icon')
+        %span Chat / チャット
+
+    %li.sub-menu
+      = link_to "#" do
+        = icon('fas', 'globe-asia', class: 'icon')
+        %span World / UserList(未実装)
+
+    %hr 
+  
+  %ul#nav-accordion.sidebar-menu
+    = link_to  user_path(current_user.id),class:"mm-title" do
+      = icon('fas', 'user', class: 'icon')
+      My page / メニュー
 
     %li.sub-menu
       = link_to  user_path(current_user.id) do
         = icon('fas', 'pen-square', class: 'icon')
-        %span プロフィール
-      
-    %li.sub-menu
-      = link_to "#" do
-        = icon('fas', 'pen-square', class: 'icon')
-        %span お気に入り(作成中)
+        %span Profile / マイツイート
 
     %li.sub-menu
       = link_to "#" do
-        = icon('fas', 'pen-square', class: 'icon')
-        %span フォローリスト(作成中)
-    
-   
-    -# %li
-    -#   %a.active{:href => "inbox.html"}
-    -#     %i.fa.fa-envelope
-    -#     %span Mail
-    -#     %span.label.label-theme.pull-right.mail-info 3
-  
+        = icon('fas', 'users', class: 'icon')
+        %span Follow /My Follower(未実装)
+      
+
+  -#  %li
+  -#     %a.active{:href => "inbox.html"}
+  -#       %i.fa.fa-envelope
+  -#       %span Mail
+  -#       %span.label.label-theme.pull-right.mail-info 3

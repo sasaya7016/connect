@@ -9,13 +9,23 @@
   z-index: 5;
   padding: 20px;
   &__lists {
+    height: 40%;
     .new-userlists {
       display: flex;
+      &__image {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: gray;
+      }
       img {
         width: 40px;
         height: 40px;
+        border-radius: 50%;
       }
     }
-
+  }
+  &__follow {
+    height: 60%;
   }
 }

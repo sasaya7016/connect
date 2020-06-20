@@ -6,6 +6,10 @@ a, a:hover, a:focus {
   text-decoration: none;
   outline: none;
 }
+
+hr {
+  width: 170px;
+}
 /*sidebar navigation*/
 
 #sidebar {
@@ -21,7 +25,28 @@ a, a:hover, a:focus {
 
 .user-sidebar {
   background: #7f523a;
+  &__lists {
+    .new-userlists {
+      display: flex;
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+  }
 }
+
+.new-userlists {
+  display: flex;
+}
+
+.new-userlists  img{
+  width: 40px;
+  height: 40px;
+}
+
+
 
 #sidebar .management-title{
   color: #f2f2f2;
@@ -86,7 +111,7 @@ ul.sidebar-menu , ul.sidebar-menu li ul.sub{
 }
 
 ul.sidebar-menu {
-  margin-top: 55px;
+  margin-top: 20px;
 }
 
 #sidebar > ul > li > ul.sub {
@@ -139,7 +164,7 @@ ul.sidebar-menu li ul.sub li.active a {
 
 ul.sidebar-menu li{
   /*line-height: 20px !important;*/
-  margin-bottom: 5px;
+  // margin-bottom: 5px;
   margin-left:10px;
   margin-right:10px;
 }
@@ -167,7 +192,7 @@ ul.sidebar-menu li a{
 }
 
 ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
-  // background: #4ECDC4;
+  background: #4ECDC4;
   background-color: #999;
   color: #fff;
   display: block;

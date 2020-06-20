@@ -65,82 +65,45 @@ $alert_orange: #F35500;
 .chat-main {
   width: calc(100% - 210px - 350px);
   height: calc(100% - 100px);
-  background-color: #ccc;
+  background-color: #fff;
   position: fixed;
   overflow: scroll;
   margin-top: 100px;
   top: 0;
   left: 210px;
-  padding: 3px;
-  // float: right;
-  // .header-a {
-  //   padding: 0 40px;
-  //   display: flex;
-  //   justify-content: space-between;
-    // &__group {
-    //   &__name {
-    //     color: $font-color2;
-    //     font-size: 20px;
-    //     padding: 35px 0 0px;
-    //   }
-    //   &__member {
-    //     color: $font-color3;
-    //     font-size: 12px;
-    //   }
-    // }
-    // &__group-edit {
-    //   height: 40px;
-    //   font-size: 16px;
-    //   line-height: 40px;
-    //   padding: 0 20px;
-    //   margin-top: 28px;
-    //   border: solid 1px;
-    //   color: $font-color4;
-    //   a {
-    //     color: $font-color4;
-    //     text-decoration: none;
-    //   }
-    // }
-  // }
-
 
   .message {
-    // width: calc(100% - 210px - 350px);
-    // height: calc(100% - 100px);
-    // background-color: red;
-    // position: fixed;
-    // top: 100px;
-    // left: 210px;
-    .messages {}
-      
-    
-    
-    // height: calc(100% -100px);
-    // padding: 35px 0 0 40px;
-    // overflow: scroll;
-    // position: fixed;
-    // top: 100px;
-    // left: 210px;
-    // .messages {
-    //   .messages__left {
-    //     display: flex;
-    //     padding-bottom: 12px;
-    //     &__name {
-    //       color: $font-color5;
-    //       font-size: 16px;
-    //       font-weight: bold;
-    //       padding-right: 10px;
-    //     }
-    //     &__date {
-    //       font-size: 12px;
-    //       color: $font-color6;
-    //     }
-    //   }
-
-    //   &__comment {
-    //     color: $font-color7;
-    //     font-size: 14px;
-    //   }
+    .messages {
+      .messages__left {
+        display: flex;
+        line-height: 30px;
+        &__name {
+          display: flex;
+          color: $font-color5;
+          font-size: 12px;
+          font-weight: bold;
+          img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+          }
+          .chat-image {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+          }
+        }
+        &__date {
+          font-size: 12px;
+          color: $font-color6;
+          margin-left: 5px;
+        }
+      }
+      &__comment {
+        color: $font-color7;
+        font-size: 14px;
+      }
+    }
   }
 
 
@@ -148,124 +111,44 @@ $alert_orange: #F35500;
   .forms {
     width: calc(100% - 210px - 350px);
     background-color: gray;
-    height: 100px;
+    height: 52px;
     position: fixed;
     bottom: 0;
     left: 210px;
-
-    // background-color: $background-color5;
-    // height: 5%;
-    // width: 100%;
-    // padding: 20px 40px;
-    // position: fixed;
-    // top: 95%;
-    // left: 210px;
-    // form {
-    //   display: flex;
-    //   .form {
-    //     display: flex;
-    //     width: 100%;
-    //     position: relative; 
-    //     .form__text {
-    //       width: 100%;
-    //       height: 50px;
-    //       padding: 0 40px 0 10px;
-    //     }
-    //     .input {
-    //       .input__file {
-    //         .image {
-    //           position: absolute;
-    //           top: 15px;
-    //           right: 10px;
-    //           color: $font-color8;
-    //           font-size: 20px;
-    //         }
-    //         .file {
-    //           display: none;
-    //         }
-    //       } 
-    //     }
-    //   }
-    // }
-    //   .send-btn {
-    //     color: $font-color9;
-    //     background-color: $background-color6;
-    //     height: 50px;
-    //     width: 100px; 
-    //   }
+    padding: 0 3px;
+    background-color: $background-color5;
+    form {
+      display: flex;
+      .form {
+        display: flex;
+        width: 100%;
+        position: relative; 
+        .form__text {
+          width: 100%;
+          height: 50px;
+          padding: 0 40px 0 10px;
+        }
+        .input {
+          .input__file {
+            .image {
+              position: absolute;
+              top: 10px;
+              right: 10px;
+              color: $font-color8;
+              font-size: 30px;
+            }
+            .file {
+              display: none;
+            }
+          } 
+        }
+      }
+    }
+      .send-btn {
+        color: $font-color9;
+        background-color: gray;
+        height: 50px;
+        width: 100px; 
+      }
   }
 }
-
-
-
-
-
-// .side-bar {
-//   float: left;
-//   width: 350px;
-//   height: 100%;
-//   background-color: #2f323a;
-//   font-family: 'Roboto', sans-serif;
-//   position: fixed;
-//   top: 0;
-//   right: 0;;
-//   z-index: 5;
-//   .header {
-//     // background-color: $background-color1;
-//     // height: 100px;
-//     // width: 300px;
-//     display: flex;
-//     // justify-content: space-between;
-//     align-items: center;
-//     &__name {
-//       color: $font-color1;
-//       height: 20px;
-//       width: 260px;
-//       margin: 0 20px;
-//       font-weight: bold;
-//       font-size: 16px;
-//       list-style: none;
-//     }
-//     &__lists  {
-//       display: flex;
-//       margin: 0 20px;
-      
-//     }
-//     li {
-//       margin-left: 5px;
-//       a { 
-//         color: $font-color1;
-//       }
-//     }  
-//   }
-// }
-
-
-// .group-list {
-//   background-color: $background-color2;
-//   color: $font-color1;
-//   height: calc(100vh - 100px);
-//   width: 300px;
-//   margin: 0;
-//   padding: 20px 20px 0;
-//   text-decoration: none;
-//   font-weight: bold;
-//     .group {
-//       a {
-//         color: $font-color1;
-//         text-decoration: none;
-//       }
-//     }  
-//     .group-list {
-//       color: $font-color1;
-//       &__name {
-//         font-size: 15px;
-//         padding-bottom: 5px;
-//     }
-//       &__message {
-//         font-size: 11px;
-//         margin-top: 5px;
-//         margin-bottom: 40px;
-//       }
-//     }  
-// }   

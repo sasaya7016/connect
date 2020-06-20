@@ -1,4 +1,4 @@
-.side-bar{ 
+.sub-chat-bar{ 
   width: 350px;
   height: 100%;
   background-color: #2f323a;
@@ -7,4 +7,40 @@
   top: 0;
   right: 0;;
   z-index: 5;
+  padding: 10px;
+  color: #fff;
+  a {
+    width: 100%;
+    text-decoration: none;
+    color: #eee;
+    :hover {
+      background-color: #999;
+      color: #fff;
+      display: block;
+
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+    }
+  }
+  .connect-groups{
+    // height: 50%;
+    &__lists {
+      // border: solid 1px gray;
+      &__name h3{
+        display: flex;
+        justify-content: space-between;
+        p.group-name {
+          color: #f05050;
+          font-size: 15px;
+        }
+      
+      }
+      &__member {
+        font-size: 12px;
+      }
+    }
+  }
 }
