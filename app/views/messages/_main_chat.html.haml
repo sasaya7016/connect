@@ -13,7 +13,8 @@
       %p.header__group__member 
         メンバー :
         - @group.users.each do |user|
-          = user.nickname
+          = image_tag user.icon_image.url,class:"member-image"
+          -# = user.nickname
     %p.header__group-edit
       = link_to 'グループ編集', edit_group_path(@group) 
   

@@ -57,6 +57,18 @@ $alert_orange: #F35500;
     justify-content: space-between;
     &__group {
       display: flex;
+  
+      img {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+      }
+      .member-image {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: gray;
+      }
     }
   }
 }
