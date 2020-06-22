@@ -1,6 +1,5 @@
 
 
-
 .profile-lists {
   width: calc(100% - 210px - 350px);
   height: calc(100% - 30px);
@@ -49,7 +48,28 @@
     width: 100%;
     height: 40px;
     background-color: #eee;
- 
+    a {
+      color: #111;
+    }
+    .stats {
+      width: 200px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      text-align: center;
+      :hover {
+        background-color: #fff;
+      }
+      p {
+        margin-right:5px ;
+      }
+      .follow-btn {
+        width: 65px;
+        border: solid 1px #ddd;
+        border-radius: 5px;
+
+      }
+    }
   }
 
   .follow-count {
@@ -69,5 +89,4 @@
       }
     }
   }
-
 }

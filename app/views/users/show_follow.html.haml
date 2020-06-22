@@ -1,35 +1,89 @@
--provide(:title, @title)
-.row
-  .col-md-4
-    %section.user_info
-      -if @user.icon_image.present?
-        = image_tag @user.icon_image.url
-      -else
-      -# = gravatar_for @user
-      %h1
-        = @user.name
-      %span
-        = link_to "マイページ", @user 
-      %span
-        %b ツイート数:
-        = @user.tweets.count
+=render "users/modules/sidebar"
+=render "users/modules/header"
+=render "users/modules/follow_sub_bar"
 
-    %section.stats
-      = render 'users/stats' 
-      -if @users.any?
-        .user_avatars
-          -@users.each do |user|
-            -if user.icon_image.present?
-              = image_tag user.icon_image.url 
-            -else
+
+.profile-lists
+  .profile-lists__top
+ 
+    .profile-image
+      -if @user.icon_image.nil?
+        = image_tag("no-image.png")
+      - else
+        = image_tag @user.icon_image.url
+        
+      -# -if @user.nickname.nil?
+      -# -else
+      -#   
+      -#   -if 
+          
+          -# =link_to image_tag("varenta_logo.png",class:"top-logo"),root_path
+
+    .profile-text
+      .profile-text__nickname
+        %i.far.fa-laugh-squint
+        =@user.nickname
+      .profile-text__email
+        %i.far.fa-envelope
+        = @user.email
+      .profile-text__profile
+        %i.far.fa-id-card
+        = simple_format @user.profile
+
+
+  .follow
+    =render "stats"
+    =render "follow_form"
+
+
+
+-# ---フォローリスト---
+.user-follow_lists
+  -provide(:title, @title)
+  .row
+    .col-md-4
+    -if @users.any?
+      .user_avatars
+        -@users.each do |user|
+          %section.user_info
+            -# -if @user.icon_image.present?
+            -#   -# = image_tag @user.icon_image.url
+            -# -else
+      
+            -# %h1
+            -#   = @user.name
+            -# %span
+            -#   = link_to "マイページ", @user 
+            -# %span
+            -#   %b ツイート数:
+            -#   = @user.tweets.count
+
+          %section.stats
+            =link_to user_path(user.id) do
+              -# = render 'users/stats' 
+              .follow_list
+                .follow-image
+                  -if user.icon_image.present?
+                    = image_tag user.icon_image.url
+                  -else
+                
+                .follow-text
+                  %p
+                    = user.nickname
+                  %p
+                    = user.profile
             
-     
-  .col-md-8
-    %h3
-      = @title
-    -if @users.any? 
-      %ul.users.follow
-        -# = render @users
-     
-  -#     = will_paginate
+           
+
+                    
+              
+      
+    -# .col-md-8
+    -#   %h3
+    -#     = @title
+    -#   -if @users.any? 
+    -#     %ul.users.follow
+          -# = render @users
+      
+    -#     = will_paginate
  

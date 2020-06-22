@@ -1,15 +1,20 @@
-.follow-count
+.follow
   -@user ||= current_user
   .stats
-    =link_to following_user_path(@user) do
-      %p フォロー
+    =link_to following_user_path(@user),class:"follow-btn" do
+      %p フォロー 
       .strong#following.stat
         =@user.following.count
        
     
-    =link_to followers_user_path(@user) do
+    =link_to followers_user_path(@user),class:"follow-btn" do
       %p フォロワー
       .strong#followers.stat
         = @user.followers.count
+
+    =link_to user_path(@user),class:"follow-btn" do
+      %p ツイート数
+      .strong#followers.stat
+        = @user.tweets.count
        
       

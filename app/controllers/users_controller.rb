@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user,only: [:edit, :show]
+  before_action :follow_user,only: [:following, :followers]
 
   def index
   end
@@ -16,7 +17,6 @@ class UsersController < ApplicationController
   end
 
   def show
-
     @user = User.find(params[:id])
     user = User.find(params[:id])
     @nickname = user.nickname
@@ -26,13 +26,6 @@ class UsersController < ApplicationController
     @email = user.email
   end
 
-  # def profile
-  #   user = User.find(params[:id])
-  # end
-
-  # def search
-  #   user = User.find(params[:user_id])
-  # end
 
   def following
     @title = "Following"
@@ -57,5 +50,9 @@ class UsersController < ApplicationController
 
   def set_user
     @users = User.all.page(params[:page]).per(3).order("created_at DESC")
+  end
+
+  def follow_user
+    @follow_users = User.all.page(params[:page]).per(3).order("created_at DESC")
   end
 end

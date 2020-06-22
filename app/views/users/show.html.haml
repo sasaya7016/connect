@@ -10,6 +10,7 @@
  
     .profile-image
       -if @icon_image.url.nil?
+        = image_tag("no-image.png")
       -else
         = image_tag @icon_image.url
 
