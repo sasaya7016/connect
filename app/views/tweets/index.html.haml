@@ -5,45 +5,50 @@
 .tweet-title
   .tweet-title__explanation
     %h1 HOME
+    %p ※フォローユーザーのツイートが見れます
+
+    
 
 .tweet-lists
-  -@tweets.each do |tweet|
-    .tweet-lists__list
-      .user-tweet
-        .user-tweet__image
-          - if tweet.user.icon_image.present?
-            = image_tag tweet.user.icon_image.url
-          -else
-           
-            
-        .user-tweet__nickname
-          = tweet.user.nickname
-      .user-text
-        =link_to tweet_path(tweet.id) do
-          .user-text__first
-            .date-time
-              = tweet.created_at.strftime('%Y/%m/%d')
-            .tweet-link
-              = link_to '詳細', "/tweets/#{tweet.id}", method: :get 
-              -if user_signed_in? && current_user.id == tweet.user_id
-                = link_to '編集', "/tweets/#{tweet.id}/edit", method: :get
-                = link_to '削除', "/tweets/#{tweet.id}", method: :delete 
-        
-        .user-text__second
-          .user_name
-            = simple_format tweet.text
-
-        .user-text__third
-          %i.fas.fa-comment
-            = tweet.comments.count
-          -#   ■
-          %i.fas.fa-heart
-            -if tweet.likes_count == nil
-              0
+  -@users.each do |user|
+    -@tweets = Tweet.where(user_id: user.id).order("created_at DESC")
+    -@tweets.each do |tweet|
+      .tweet-lists__list
+        .user-tweet
+          .user-tweet__image
+            - if tweet.user.icon_image.present?
+              = image_tag tweet.user.icon_image.url
             -else
-              = tweet.likes_count
+              
+              
+          .user-tweet__nickname
+            = tweet.user.nickname
+        .user-text
+          =link_to tweet_path(tweet.id) do
+            .user-text__first
+              .date-time
+                = tweet.created_at.strftime('%Y/%m/%d')
+              .tweet-link
+                = link_to '詳細', "/tweets/#{tweet.id}", method: :get 
+                -if user_signed_in? && current_user.id == tweet.user_id
+                  = link_to '編集', "/tweets/#{tweet.id}/edit", method: :get
+                  = link_to '削除', "/tweets/#{tweet.id}", method: :delete 
           
-     
-  = paginate(@tweets)
-           
+          .user-text__second
+            .user_name
+              = simple_format tweet.text
+
+          .user-text__third
+            %i.fas.fa-comment
+              = tweet.comments.count
+            -#   ■
+            %i.fas.fa-heart
+              -if tweet.likes_count == nil
+                0
+              -else
+                = tweet.likes_count
             
+        
+
+              
+                

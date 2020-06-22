@@ -28,9 +28,9 @@
         %span Chat / チャット
 
     %li.sub-menu
-      = link_to "#" do
+      = link_to tweets_world_path do
         = icon('fas', 'globe-asia', class: 'icon')
-        %span World / UserList(未実装)
+        %span World / 全ツイート
 
     %hr 
   
@@ -44,10 +44,10 @@
         = icon('fas', 'pen-square', class: 'icon')
         %span Profile / マイツイート
 
-    %li.sub-menu
-      = link_to "#" do
-        = icon('fas', 'users', class: 'icon')
-        %span Follow /My Follower(未実装)
+    -# %li.sub-menu
+    -#   =link_to following_user_path(@user) do
+    -#     = icon('fas', 'users', class: 'icon')
+    -#     %span Follow /フォローリスト
       
 
   -#  %li
