@@ -3,19 +3,22 @@
 = render "tweets/modules/sub_bar"
 
 
-
 .tweet-title
   .tweet-title__explanation
-    %h1 検索結果
+    %h1 HOME
+    %p ※全ユーザーのツイートが見れます。
+
+    
 
 .tweet-lists
-  -@searches.each do |tweet|
+  -@tweets.each do |tweet|
     .tweet-lists__list
       .user-tweet
         .user-tweet__image
           - if tweet.user.icon_image.present?
-            =link_to image_tag tweet.user.icon_image.url
-          - else
+            = image_tag tweet.user.icon_image.url
+          -else
+            
             
         .user-tweet__nickname
           = tweet.user.nickname
@@ -34,16 +37,15 @@
           .user_name
             = simple_format tweet.text
 
-          .user-text__third
-            %i.fas.fa-comment
-              = tweet.comments.count
-            -#   ■
-            %i.fas.fa-heart
-              -if tweet.likes_count == nil
-                0
-              -else
-                = tweet.likes_count
+        .user-text__third
+          %i.fas.fa-comment
+            = tweet.comments.count
+          -#   ■
+          %i.fas.fa-heart
+            -if tweet.likes_count == nil
+              0
+            -else
+              = tweet.likes_count
+  =paginate(@tweets)
           
-     
-
-           
+      

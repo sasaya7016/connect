@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   }
   root "tweets#index"
 
+  get "tweets/world"
   get "tweets/search"
   resources :tweets do
     resources :comments, only: [:create, :destroy]
