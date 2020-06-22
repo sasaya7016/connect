@@ -1,11 +1,14 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: [:edit, :show]
   before_action :move_to_index, except: [:index, :show]
-  before_action :search_action,only: [:index, :new, :show, :edit]
-  before_action :all_ranks,only: [:index, :new, :show, :edit, :search]
+  before_action :search_action,only: [:index, :new, :show, :edit,:world]
+  before_action :all_ranks,only: [:index, :new, :show, :edit, :search,:world]
 
   def index
-    @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(10)
+    # @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(10)
+    
+    @user = current_user
+    @users = @user.following
   end
 
   def new
@@ -38,9 +41,13 @@ class TweetsController < ApplicationController
   end
 
   def search
-    @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(10)
-    @q = Tweet.search(search_params)
+    tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(10)
+    @q = tweets.search(search_params)
     @searches = @q.result(distinct: true)
+  end
+
+  def world
+    @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(10)
   end
 
   private
