@@ -1,7 +1,7 @@
 .user-subbar
   .user-subbar__lists
     コネクト新規登録者
-    -@users.each do |u|
+    -@users.last(10).each do |u|
       .new-userlists
         .new-userlists__image
           -if u.icon_image.present?

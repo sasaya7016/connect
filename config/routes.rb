@@ -16,8 +16,12 @@ Rails.application.routes.draw do
     resources :messages
   end
 
- 
+  resources :relationships,only: [:create, :destroy]
   resources :users,only: [:index, :edit, :update, :show] do
+    member do
+      get :following, :followers
+    end
+    
     resources :tweets do
       resources :comments, only: [:create, :destroy]
       resources :likes, only: [:create, :destroy]

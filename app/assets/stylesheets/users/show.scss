@@ -17,6 +17,7 @@
       width: 200px;
       height: 200px;
       background-color: #eee;
+      border: solid 1px #ddd;
 
     }
     img {
@@ -42,4 +43,31 @@
       }
     }
   }
+
+  .follow {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    background-color: #eee;
+ 
+  }
+
+  .follow-count {
+    a {
+      color: #333;
+      font-size: 13px;
+    }
+
+    .stats {
+      width: 200px;
+      display: flex;
+      p {
+        margin-right:5px ;
+      }
+      .stat {
+        text-align: center;
+      }
+    }
+  }
+
 }

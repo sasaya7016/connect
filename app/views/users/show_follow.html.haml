@@ -1,0 +1,35 @@
+-provide(:title, @title)
+.row
+  .col-md-4
+    %section.user_info
+      -if @user.icon_image.present?
+        = image_tag @user.icon_image.url
+      -else
+      -# = gravatar_for @user
+      %h1
+        = @user.name
+      %span
+        = link_to "マイページ", @user 
+      %span
+        %b ツイート数:
+        = @user.tweets.count
+
+    %section.stats
+      = render 'users/stats' 
+      -if @users.any?
+        .user_avatars
+          -@users.each do |user|
+            -if user.icon_image.present?
+              = image_tag user.icon_image.url 
+            -else
+            
+     
+  .col-md-8
+    %h3
+      = @title
+    -if @users.any? 
+      %ul.users.follow
+        -# = render @users
+     
+  -#     = will_paginate
+ 
