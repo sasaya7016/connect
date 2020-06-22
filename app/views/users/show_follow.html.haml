@@ -7,17 +7,9 @@
   .profile-lists__top
  
     .profile-image
-      -if @user.icon_image.nil?
-        = image_tag("no-image.png")
-      - else
+      -if @user.icon_image.present?
         = image_tag @user.icon_image.url
         
-      -# -if @user.nickname.nil?
-      -# -else
-      -#   
-      -#   -if 
-          
-          -# =link_to image_tag("varenta_logo.png",class:"top-logo"),root_path
 
     .profile-text
       .profile-text__nickname
