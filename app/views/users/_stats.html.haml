@@ -1,0 +1,15 @@
+.follow-count
+  -@user ||= current_user
+  .stats
+    =link_to following_user_path(@user) do
+      %p フォロー
+      .strong#following.stat
+        =@user.following.count
+       
+    
+    =link_to followers_user_path(@user) do
+      %p フォロワー
+      .strong#followers.stat
+        = @user.followers.count
+       
+      
