@@ -5,7 +5,7 @@ class TweetsController < ApplicationController
   before_action :all_ranks,only: [:index, :new, :show, :edit, :search,:world]
 
   def index
-    # @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(10)
+    @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(10)
     
     @user = current_user
     @users = @user.following
