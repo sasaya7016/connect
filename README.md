@@ -109,7 +109,7 @@
 - belongs_to :group
 - belongs_to :user
 
-## commentデーブル
+## commentテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|
@@ -120,7 +120,7 @@
 - belongs_to :user
 
 
-## relationship デーブル
+## relationshipテーブル
 |Column|Type|Options|
 |------|----|-------|
 |follower_id|integer|
