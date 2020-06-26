@@ -120,3 +120,11 @@
 - belongs_to :user
 
 
+## relationship デーブル
+|Column|Type|Options|
+|------|----|-------|
+|follower_id|integer|
+|followed_id|integer|
+### Association
+- belongs_to :follower, class_name: "User"
+- belongs_to :followed, class_name: "User"
